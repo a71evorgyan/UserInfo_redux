@@ -22,18 +22,11 @@ render() {
     </div>);
 
   return(
-      <div  className="back">
+      <div>
           <div style={{float: 'left', width: '30%'}}>
-              {users}   
-          </div>
-          <div>    
-              {userInfo.userId ? 
-                <div style={{float: 'left'}}>
-                 <UserDetails userInfo={userInfo}/>
-                </div>
-                : null
-            }
-          </div> 
+              {users}     
+          </div>   
+          <UserDetails /> 
       </div>
   )
 }
@@ -44,6 +37,5 @@ function mapStateToProps(state){
         userInfo: state.userInfo,
     }; 
 }
-
 
 export default connect(mapStateToProps)(UserInfo);

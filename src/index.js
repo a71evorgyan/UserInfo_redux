@@ -9,9 +9,10 @@ import reducer from './reducers/updateInfo'
 const mystore = createStore(reducer);
 console.log(mystore.getState());
 const App = () => {
-    return (<Provider store={mystore}>
+    return (
+    <Provider store={mystore}>
         <UserInfo />
-    </Provider>);
+    </Provider>);   
 };
 
 render(
