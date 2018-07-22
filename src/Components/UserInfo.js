@@ -3,36 +3,48 @@ import data from '../data.json';
 import '../Stylesheets/App.css';
 import { connect } from 'react-redux';
 import UserDetails from './UserDetails'
+import Background from '../Images/photo.jpg';
 
- 
-class UserInfo extends Component {
-
-// state = {
-//   userInfo: {},  
+// function getInfo_action(user_id){ //action creator
+//     return {
+//         type: "GETINFO",
+//         user_id
+//     }
 // }
 
-clickHandler(id) {
+
+class UserInfo extends Component {
+
+    getInfo_action = (user_id) =>{ //action creator
+        return {
+            type: "GETINFO",
+            user_id
+        }
+    }
+
+clickHandler = (id) => {
     this.props.dispatch({ type: "GETINFO",
     id});
-//   let result = data.find(user => user.userId === id);
-//   this.setState({
-//       userInfo: result,
-//   });
- 
+    // this.props.dispatch(this.getInfo_action(id));
+    
+    
+
 }
 
+
 render() {
-  const {userInfo} = this.props; 
+    
+  const {userInfo} = this.props;
+  console.log( userInfo.userId,  userInfo.firstName); 
   const users = data.map((elem) => 
     <div 
         style={{margin: '10px', cursor: 'pointer'}}
         onClick={this.clickHandler.bind(this, elem.userId)}
-        data-user-id={elem.userId}
         key={elem.userId}>{elem.firstName} {elem.lastName}
     </div>);
 
   return(
-      <div>
+      <div  className="back">
           <div style={{float: 'left', width: '30%'}}>
               {users}
              
@@ -43,13 +55,6 @@ render() {
               {userInfo.userId ? 
                 <div style={{float: 'left'}}>
                  <UserDetails userInfo={userInfo}/>
-                    {/* <div>First Name: {userInfo.firstName}</div>
-                    <div>Last Name: {userInfo.lastName}</div>
-                    <div>Region: {userInfo.region}</div>
-                    <div>Phone Number: {userInfo.phoneNumber}</div>
-                    <div>Email Address: {userInfo.emailAddress}</div>
-                    <div>Job Title Name: {userInfo.jobTitleName}</div>
-                    <div>Preferred Full Name: {userInfo.preferredFullName}</div> */}
                 </div>
                 : null
             }

@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 class UserDetails extends Component {
 render(){
     const {userInfo} = this.props;
-    console.log(this.props.userInfo);
+    // console.log(this.props.userInfo);
 
     return(
     
