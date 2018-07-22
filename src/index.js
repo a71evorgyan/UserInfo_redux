@@ -1,34 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import UserInfo from './Components/UserInfo';
 import { render } from 'react-dom'
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import data from './data.json';
-
-const initialState = {
-    userInfo: {}
-}
-  
-function reducer(state = initialState, action){
-    let result = data.find(user => user.userId === action.id);
-    switch(action.type) {
-    
-        case "GETINFO":
-          return {
-            ...state,
-            userInfo: result,
-        }
-        default:
-          return state;
-      }
-    
-}
+import reducer from './reducers/updateInfo'
 
 
-const store = createStore(reducer);
+const mystore = createStore(reducer);
+console.log(mystore.getState());
 const App = () => {
-    return (<Provider store={store}>
+    return (<Provider store={mystore}>
         <UserInfo />
     </Provider>);
 };
