@@ -1,5 +1,5 @@
 import React from 'react';
-import UserInfo from './Components/UserInfo';
+import UserInfo from './containers/UserInfo';
 import { render } from 'react-dom'
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';

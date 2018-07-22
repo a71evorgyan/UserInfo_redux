@@ -17,10 +17,10 @@ const UserDetails =(props) =>{
 
         return userInfo.userId ? renderDetails : null;   
     }
-
-const mapStateToProps = (state) => {
-    return {
-            userInfo: state.userInfo,  
-    };
-}
-export default connect(mapStateToProps)(UserDetails);
+export default UserDetails;
+// const mapStateToProps = (state) => {
+//     return {
+//             userInfo: state.userInfo,  
+//     };
+// }
+// export default connect(mapStateToProps)(UserDetails);

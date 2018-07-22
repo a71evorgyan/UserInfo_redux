@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import data from '../data.json';
-import UserDetails from './UserDetails';
+import UserDetails from '../Components/UserDetails';
 import {getInfo_action} from '../actions/getInfo';
 
 
 class UserInfo extends Component {
 
-clickHandler = (id) => {
+clickHandler(id){
     this.props.dispatch(getInfo_action(id));
 }
 
@@ -26,7 +26,7 @@ render() {
           <div style={{float: 'left', width: '30%'}}>
               {users}     
           </div>   
-          <UserDetails /> 
+          <UserDetails userInfo={userInfo}/> 
       </div>
   )
 }
